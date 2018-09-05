@@ -24,13 +24,14 @@ app.use((req,res, next) => {
     });
     next();
 });
-
+/*
 app.use((req, res, next) => {
     res.render("maintenance.hbs", {
         pageTitle: "We're updating !"
     });
+    //next();
 });
-
+*/
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper("getCurrentYear", () => {
@@ -53,6 +54,13 @@ app.get('/about', (req, res) => {
     res.render("about.hbs", {
         pageTitle: "About Page",
 
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render("projects.hbs", {
+        pageTitle: "Projects Page",
+        welcomeMessage: "View my projects"
     });
 });
 
